@@ -3,8 +3,9 @@ const router = express.Router();
 const {isEmpty} = require('../utils/is-empty');
 const {createLessonInWeekValidtor} = require('../validations/lesson_in_week.validations')
 const {createLessonInWeek , updateLessonInWeek , deleteLessonInWeek} = require('../controllers/lesson_in_week.controller');
+const {isAuth} = require('../middlewares/auth.middlewares')
 const e = require('express');
-router.post('/api/lesson-in-week' , async (req , res) => {
+router.post('/api/lesson-in-week', isAuth, async (req , res) => {
     const errors = 
     createLessonInWeekValidtor(req.body)
     if(isEmpty(errors)){
@@ -35,7 +36,7 @@ router.post('/api/lesson-in-week' , async (req , res) => {
 })
 
 
-router.put('/api/lesson_in_week' , async(req , res) => {
+router.put('/api/lesson_in_week', isAuth, async(req , res) => {
     // const errors = createLessonInWeekValidtor(req.body)
     // if(isEmpty(errors)){
         try{
@@ -62,7 +63,7 @@ router.put('/api/lesson_in_week' , async(req , res) => {
 })
 
 
-router.delete('/api/lesson_in_week/:id' , async(req , res) => {
+router.delete('/api/lesson_in_week/:id', isAuth, async(req , res) => {
     try{
         await deleteLessonInWeek(req.params.id)
         

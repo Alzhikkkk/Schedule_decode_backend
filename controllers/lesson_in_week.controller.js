@@ -1,5 +1,7 @@
 const {Lesson_in_week, Group, Sequelize} = require('../models');
 const Op = Sequelize.Op
+
+console.log(Lesson_in_week)
 const createLessonInWeek = ({course_id , group_id , room_id , mentor_id , weekday , time}) => {
     return new Promise(async resolve => {
         const lessonInWeek = await Lesson_in_week.create({

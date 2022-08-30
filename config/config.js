@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 module.exports = {
+  SECRET_KEY : "secret1122",
   development: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
@@ -10,6 +11,8 @@ module.exports = {
     define : {
       timestamps : true
     }
+
+    
   }
   // "test": {
   //   "username": "root",

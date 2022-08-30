@@ -3,9 +3,10 @@ const router = express.Router();
 const {isEmpty} = require('../utils/is-empty');
 const {createGroup , deleteGroup , updateGroup, getActiveGroups, getGroups} = require('../controllers/group.controller');
 const {createGroupValidtor} = require('../validations/groupValidations');
+const {isAuth} = require('../middlewares/auth.middlewares')
 
 
-router.post('/api/groups' , async (req , res) => {
+router.post('/api/groups' , isAuth, async (req , res) => {
     const errors = createGroupValidtor(req.body)
     if(isEmpty(errors)){
         try{
@@ -22,7 +23,7 @@ router.post('/api/groups' , async (req , res) => {
 router.get('/api/groups', getGroups)
 
 
-router.delete('/api/groups/:id' , async (req , res) => {
+router.delete('/api/groups/:id', isAuth,  async (req , res) => {
     try{
         await deleteGroup(req.params.id)
         res.status(200).end()
@@ -31,7 +32,7 @@ router.delete('/api/groups/:id' , async (req , res) => {
     }
 })
 
-router.put('/api/groups' , async(req , res) => {
+router.put('/api/groups', isAuth, async(req , res) => {
     try{
         const group = await updateGroup(req.body)
         res.status(200).send(group)
@@ -41,7 +42,7 @@ router.put('/api/groups' , async(req , res) => {
 })
 
 
-router.get('/api/groups/filter/active' , async (req , res) => {
+router.get('/api/groups/filter/active', async (req , res) => {
     try{
         const groups = await getActiveGroups()
         res.status(200).send(groups)

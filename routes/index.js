@@ -7,7 +7,9 @@ router.use(require('./course'));
 router.use(require('./lesson_in_week'));
 router.use(require('./busy_in_week'));
 router.use(require('./group'));
-router.use(require('./search'))
+router.use(require('./search'));
+router.use(require('./auth'));
+
 
 
 module.exports = router
