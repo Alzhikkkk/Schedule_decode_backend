@@ -1,4 +1,4 @@
-const whitelist = ['http://localhost:3000', 'http://scedule.alzhik.kz', 'http://api.alzhik.kz']
+const whitelist = ['http://localhost:3000', 'http://scedule.alzhik.site', 'http://api.alzhik.site']
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {
