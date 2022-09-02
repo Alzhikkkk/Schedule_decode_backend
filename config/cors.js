@@ -1,4 +1,4 @@
-const whitelist = ['http://schedule.alzhik.site', 'http://api.alzhik.site']
+const whitelist = ['https://schedule.alzhik.site', 'https://api.alzhik.site']
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {
