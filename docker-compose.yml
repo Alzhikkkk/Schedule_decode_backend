@@ -15,7 +15,7 @@ services:
 
   backend:
     build:
-      context: ./Schedule_decode_backend
+      context: ./
     container_name: backend
     image: backend
     depends_on:
@@ -33,7 +33,7 @@ services:
       - postgres
   migration:
     build:
-       context: ./Schedule_decode_backend
+       context: ./
     command:
        [
         "./wait-for-it/wait-for-it.sh",
