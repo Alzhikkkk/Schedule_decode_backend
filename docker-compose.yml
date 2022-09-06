@@ -52,12 +52,5 @@ services:
       DB_HOST: "postgres-16"
       DB_USERNAME: postgres
       DB_PASSWORD: 's3c73t-p4$$w07d'
-  frontend:
-      build: ../schedule_decode_frontend
-      container_name: frontend_c
-      ports:
-      - 3000:3000
-      stdin_open: true
-      tty: true
 volumes:
   database: {}

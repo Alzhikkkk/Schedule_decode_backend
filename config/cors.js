@@ -1,5 +1,7 @@
 const whitelist = ['http://schedule_decode.alzhik.site', 'http://apischedule.alzhik.site']  
 // ['https://schedule.alzhik.site', 'https://api.alzhik.site'] - lighsail
+// ['http://schedule_decode.alzhik.site', 'http://apischedule.alzhik.site']  - digitalocean
+// ['http://localhost:3000', 'http://localhost:3001'] local 
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {
