@@ -1,19 +1,29 @@
-require('dotenv').config();
+// require('dotenv').config();
 
 module.exports = {
-  SECRET_KEY : "secret1122",
+  SECRET_KEY: "secret1122",
   development: {
     username: process.env.DB_USERNAME,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
     host: process.env.DB_HOST,
-    dialect: "postgres",
-    define : {
-      timestamps : true
-    }
+    dialect: "postgresql",
+    port: 5432,
+    define: {
+      timestamps: true,
+    },
+  },
 
-    
-  }
+  // SECRET_KEY : "secret1122",
+  // development: {
+  //   username: process.env.DB_USERNAME,
+  //   password: process.env.DB_PASSWORD,
+  //   database: process.env.DB_NAME,
+  //   host: process.env.DB_HOST,
+  //   dialect: "postgres",
+  //   define : {
+  //     timestamps : true
+  //   }}
   // "test": {
   //   "username": "root",
   //   "password": null,
@@ -28,4 +38,4 @@ module.exports = {
   //   "host": "127.0.0.1",
   //   "dialect": "mysql"
   // }
-}
+};

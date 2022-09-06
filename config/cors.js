@@ -1,4 +1,5 @@
-const whitelist = ['https://schedule.alzhik.site', 'https://api.alzhik.site']
+const whitelist = ['http://localhost:3000', 'http://localhost:3001']  
+// ['https://schedule.alzhik.site', 'https://api.alzhik.site'] - lighsail
 const corsOptionsDelegate = function (req, callback) {
   let corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {
